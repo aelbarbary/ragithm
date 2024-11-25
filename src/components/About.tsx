@@ -12,7 +12,7 @@ With nearly a decade of experience in B2B SaaS and solo-entrepreneurship, I've d
     expertise: ['Generative AI', 'RAG', 'LLMs', 'Business Strategy'],
     social: {
       youtube: 'https://youtube.com/@hennawitalksbusiness',
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/hennawi/',
       github: '#'
     }
   },
@@ -23,8 +23,8 @@ With nearly a decade of experience in B2B SaaS and solo-entrepreneurship, I've d
     bio: `A seasoned full-stack software engineer and tech lead with over 20 years of experience, specializing in developing large-scale applications and services. With a strong background in enhancing cybersecurity measures, I am proficient in tools like Fortify, Nessus, and Sonatype.`,
     expertise: ['Full-Stack Development', 'Cybersecurity', 'System Architecture', 'Tech Leadership'],
     social: {
-      linkedin: '#',
-      github: '#'
+      linkedin: 'https://www.linkedin.com/in/aelbarb/',
+      github: 'https://github.com/aelbarbary',
     }
   }
 ];

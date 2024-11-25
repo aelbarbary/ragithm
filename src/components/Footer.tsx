@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-6 md:mb-0">
             <Brain className="h-8 w-8 text-blue-500" />
-            <span className="ml-2 text-xl font-bold">AI Solutions</span>
+            <span className="ml-2 text-xl font-bold">Ragithm</span>
           </div>
           
           <div className="flex space-x-6">
@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} AI Solutions. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Ragithm. All rights reserved.</p>
         </div>
       </div>
     </footer>
