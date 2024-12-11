@@ -8,6 +8,9 @@ import CaseStudies from './pages/CaseStudies';
 import Blog from './pages/Blog';
 import CaseStudyDetail from './pages/CaseStudyDetail';
 import BlogPost from './pages/BlogPost';
+import { FactCheckHub } from './projects/fact-check-hub/FactCheckHub';
+
+
 
 function App() {
   return (
@@ -17,6 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/fact-check-hub" element={<FactCheckHub />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
             <Route path="/blog" element={<Blog />} />

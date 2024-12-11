@@ -65,10 +65,10 @@ const ProjectDetail = () => {
     return (
       <Box py={10} textAlign="center">
         <Typography variant="h4" gutterBottom>
-          Case Study Not Found
+          Project Not Found
         </Typography>
-        <Button variant="outlined" component={Link} to="/case-studies">
-          Return to Case Studies
+        <Button variant="outlined" component={Link} to="/projects">
+          Return to Project
         </Button>
       </Box>
     );
@@ -80,11 +80,11 @@ const ProjectDetail = () => {
         <Button
           variant="text"
           component={Link}
-          to="/case-studies"
+          to="/projects"
           startIcon={<ArrowLeft />}
           sx={{ mb: 3 }}
         >
-          Back to Case Studies
+          Back to Projects
         </Button>
 
         <Card sx={{ mb: 5 }}>

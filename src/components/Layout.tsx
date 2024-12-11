@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { Box } from '@mui/material';
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,13 +9,27 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
+    <Box
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        background: 'linear-gradient(to bottom, #1A202C, #000000)',
+        color: 'white',
+      }}
+    >
       <Navbar />
-      <main className="pt-16">
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          paddingTop: '64px', // Adjust depending on Navbar height
+        }}
+      >
         {children}
-      </main>
+      </Box>
       <Footer />
-    </div>
+    </Box>
   );
 };
 

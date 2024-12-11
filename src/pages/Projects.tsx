@@ -5,10 +5,10 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const projects = [
   {
-    title: 'AI Image Recognition',
-    description: 'Python-based image recognition system using TensorFlow',
-    tech: ['Python', 'TensorFlow', 'OpenCV'],
-    demoUrl: '#',
+    title: 'Fact-Check Hub',
+    description: 'A LangChain-powered platform for verifying political statements and ensuring factual accuracy.',
+    tech: ['Python', 'LangChain', 'React'],
+    demoUrl: '/projects/fact-check-hub',
     codePreview: `
 import tensorflow as tf
 from tensorflow.keras import layers
@@ -20,23 +20,9 @@ model = tf.keras.Sequential([
 ])
     `.trim(),
   },
-  {
-    title: 'React Chat Bot',
-    description: 'Intelligent chatbot built with React and NLP',
-    tech: ['React', 'TypeScript', 'NLP.js'],
-    demoUrl: '#',
-    codePreview: `
-const ChatBot = () => {
-  const [messages, setMessages] = useState([]);
   
-  const handleMessage = async (text) => {
-    const response = await nlp.process(text);
-    setMessages([...messages, response]);
-  };
-}
-    `.trim(),
-  },
 ];
+
 
 const Projects = () => {
   return (
