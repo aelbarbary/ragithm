@@ -9,16 +9,7 @@ const projects = [
     description: 'A LangChain-powered platform for verifying political statements and ensuring factual accuracy.',
     tech: ['Python', 'LangChain', 'React'],
     demoUrl: '/projects/fact-check-hub',
-    codePreview: `
-import tensorflow as tf
-from tensorflow.keras import layers
-
-model = tf.keras.Sequential([
-  layers.Conv2D(32, 3, activation='relu'),
-  layers.MaxPooling2D(),
-  layers.Dense(10, activation='softmax')
-])
-    `.trim(),
+    imageUrl: 'https://plus.unsplash.com/premium_photo-1708413394110-dfd597305ab9?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
   },
   
 ];
@@ -57,13 +48,7 @@ const Projects = () => {
                 </div>
 
                 <div className="mb-4">
-                  <SyntaxHighlighter
-                    language="javascript"
-                    style={atomDark}
-                    className="rounded-lg text-sm"
-                  >
-                    {project.codePreview}
-                  </SyntaxHighlighter>
+                  <img src={project.imageUrl} />
                 </div>
 
                 <a

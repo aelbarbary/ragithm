@@ -6,7 +6,7 @@ interface FactCheckResultProps {
 }
 
 export const FactCheckResult: React.FC<FactCheckResultProps> = ({ result }) => {
-  const isVerified = !result.includes("incorrect");
+  const isVerified = !result.includes("false");
 
   return (
     <div className={`p-4 mt-4 rounded-lg ${

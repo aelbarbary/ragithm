@@ -4,53 +4,19 @@ import { TextField, Button, CircularProgress, Typography } from '@mui/material';
 
 interface FactCheckFormProps {
   statement: string;
-  apiKey: string;
   onStatementChange: (value: string) => void;
-  onApiKeyChange: (value: string) => void;
   onSubmit: () => void;
   isLoading: boolean;
 }
 
 export const FactCheckForm: React.FC<FactCheckFormProps> = ({
   statement,
-  apiKey,
   onStatementChange,
-  onApiKeyChange,
   onSubmit,
   isLoading
 }) => {
   return (
     <div style={{ width: '100%' }}>
-      <div>
-        <Typography variant="body2" color="white" gutterBottom>
-          OpenAI API Key
-        </Typography>
-        <TextField
-          type="password"
-          value={apiKey}
-          onChange={(e) => onApiKeyChange(e.target.value)}
-          fullWidth
-          variant="outlined"
-          placeholder="Enter your OpenAI API key"
-          disabled={isLoading}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              backgroundColor: 'rgba(38, 38, 38, 0.9)', // Dark background
-              borderRadius: 2,
-              '& input': {
-                color: 'white', // White text inside the input
-              },
-            },
-            '& .MuiFormLabel-root': {
-              color: 'white', // White label text
-            },
-            '& .MuiFormLabel-root.Mui-focused': {
-              color: 'white', // Label stays white when focused
-            },
-          }}
-        />
-      </div>
-
       <div style={{ marginTop: 16 }}>
         <Typography variant="body2" color="white" gutterBottom>
           Statement to Verify
@@ -91,7 +57,7 @@ export const FactCheckForm: React.FC<FactCheckFormProps> = ({
       
       <Button
         onClick={onSubmit}
-        disabled={isLoading || !statement || !apiKey}
+        disabled={isLoading || !statement}
         fullWidth
         color="primary"
         sx={{
@@ -102,7 +68,7 @@ export const FactCheckForm: React.FC<FactCheckFormProps> = ({
         }}
       >
         {isLoading ? (
-          <CircularProgress size={24} color="inherit" />
+          <CircularProgress size={24} color="inherit" sx={{color: 'white'}}/>
         ) : (
           <>
             <Send style={{ marginRight: 8 }} />

@@ -5,7 +5,7 @@ export interface FactCheckResponse {
   
   export interface FactCheckFormData {
     statement: string;
-    openaiApiKey: string;
+    fileName: string;
   }
   
   export interface FileUploadResponse {
