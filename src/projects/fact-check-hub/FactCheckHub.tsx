@@ -71,9 +71,7 @@ export const FactCheckHub: React.FC = () => {
           <p>Upload a CSV file in the following format:</p>
           <ul>
             <li><strong>Fact</strong> - The statement to be fact-checked (e.g., "The earth is flat").</li>
-            <li><strong>Status</strong> - One of the following values: <strong>pending</strong>, <strong>verified</strong>, <strong>false</strong>.</li>
           </ul>
-          <p>Ensure the CSV columns are in this order: <strong>fact, status</strong>.</p>
         </div>
       </div>
 
