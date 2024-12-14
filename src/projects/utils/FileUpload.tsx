@@ -4,15 +4,16 @@ import { Button, Typography, Box } from '@mui/material';
 
 interface FileUploadProps {
   onFileSelect: (file: File) => void;
+  acceptedFileTypes: string; 
 }
 
-export const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
+export const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect, acceptedFileTypes }) => {
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    if (file && file.type === 'text/csv') {
+    if (file && acceptedFileTypes.split(',').includes(file.type)) {
       onFileSelect(file);
       if (fileInputRef.current) {
         fileInputRef.current.value = ''; // Reset input value
@@ -27,7 +28,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
           type="file"
           id="file-upload"
           className="hidden"
-          accept=".csv"
+          accept={acceptedFileTypes}
           onChange={handleFileChange}
           ref={fileInputRef}
         />
@@ -38,7 +39,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
           sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 2 }}
         >
           <Typography variant="body2" color="white" sx={{ marginTop: 1 }}>
-            Upload CSV file with facts
+            Upload file
           </Typography>
         </Button>
       </label>

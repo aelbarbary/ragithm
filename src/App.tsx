@@ -9,6 +9,7 @@ import Blog from './pages/Blog';
 import CaseStudyDetail from './pages/CaseStudyDetail';
 import BlogPost from './pages/BlogPost';
 import { FactCheckHub } from './projects/fact-check-hub/FactCheckHub';
+import { ChatWithPdf } from './projects/chat-with-pdf/ChatWithPdf';
 
 
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/fact-check-hub" element={<FactCheckHub />} />
+            <Route path="/projects/chat-with-pdf" element={<ChatWithPdf />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
             <Route path="/blog" element={<Blog />} />

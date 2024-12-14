@@ -1,53 +1,51 @@
 import React, { useRef, useState } from 'react';
-import { FactCheckResponse } from './types';
-import { FactCheckResult } from './FactCheckResult';
-import { FactCheckForm } from './FactCheckForm';
-import { Snackbar, Alert } from '@mui/material';
-import { factCheckApi } from './services/api';
 import { FileUpload } from '../utils/FileUpload';
+import { ChatPdfResponse } from './types';
+import { Snackbar, Alert } from '@mui/material';
+import { chatPdfApi } from './services/api';
+import { ChatPdfForm } from './ChatPdfForm';
+import { ChatPdfResult } from './ChatPdfResult';
 
-
-export const FactCheckHub: React.FC = () => {
-  const [statement, setStatement] = useState('');
-  const [response, setResponse] = useState<FactCheckResponse | null>(null);
+export const ChatWithPdf: React.FC = () => {
+  const [query, setQuery] = useState('');
+  const [response, setResponse] = useState<ChatPdfResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [fileName, setFileName] = useState('');
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  
+
   const handleFileUpload = async (file: File) => {
     try {
       const fileName = file.name;
       console.log(fileName);
-      const uploadResponse = await factCheckApi.uploadFile(file, 'ragithm', fileName );
+      const uploadResponse = await chatPdfApi.uploadFile(file, 'ragithm', fileName);
       setSuccessMessage('File uploaded successfully!');
-      setFileName(fileName)
+      setFileName(fileName);
 
       if (fileInputRef.current) {
         fileInputRef.current.value = ''; // Reset input value
       }
-      // Handle the uploaded file response as needed
     } catch (err) {
       setError('Failed to upload file');
     }
   };
 
-  const handleFactCheck = async () => {
-    if (!statement ) return;
+  const handleQuerySubmit = async () => {
+    if (!query) return;
 
     setLoading(true);
     setError('');
-    
+
     try {
-      const response = await factCheckApi.checkFact({
-        statement,
+      const response = await chatPdfApi.queryPdf({
+        query,
         fileName
       });
       setResponse(response);
     } catch (err) {
-      setError('Failed to verify statement');
-      console.error('Fact check error:', err);
+      setError('Failed to process query');
+      console.error('Query error:', err);
       setResponse(null);
     } finally {
       setLoading(false);
@@ -60,25 +58,22 @@ export const FactCheckHub: React.FC = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-2xl font-bold  mb-6">
-        Fact Check Hub
-      </h1>
+      <h1 className="text-2xl font-bold mb-6">Chat with PDF</h1>
 
       <div className="mb-6">
-        <FileUpload onFileSelect={handleFileUpload} acceptedFileTypes="text/csv" />
-        {/* File upload information */}
+        <FileUpload onFileSelect={handleFileUpload} acceptedFileTypes={'application/pdf'} />
         <div className="mt-2 text-sm text-gray-500">
-          <p>Upload a CSV file in the following format:</p>
+          <p>Upload a PDF file to interact with its content:</p>
           <ul>
-            <li><strong>Fact</strong> - The statement to be fact-checked (e.g., "The earth is flat").</li>
+            <li><strong>Query</strong> - Ask questions about the uploaded PDF.</li>
           </ul>
         </div>
       </div>
 
-      <FactCheckForm
-        statement={statement}
-        onStatementChange={setStatement}
-        onSubmit={handleFactCheck}
+      <ChatPdfForm
+        statement={query}
+        onStatementChange={setQuery}
+        onSubmit={handleQuerySubmit}
         isLoading={loading}
       />
 
@@ -88,7 +83,7 @@ export const FactCheckHub: React.FC = () => {
         </div>
       )}
 
-     <Snackbar
+      <Snackbar
         open={!!successMessage}
         autoHideDuration={6000}
         onClose={handleCloseSnackbar}
@@ -98,8 +93,7 @@ export const FactCheckHub: React.FC = () => {
         </Alert>
       </Snackbar>
 
-
-      {response && <FactCheckResult result={response.validation_result} />}
+      {response && <ChatPdfResult result={response.result} />}
     </div>
   );
 };

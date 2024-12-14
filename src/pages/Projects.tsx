@@ -11,7 +11,13 @@ const projects = [
     demoUrl: '/projects/fact-check-hub',
     imageUrl: 'https://plus.unsplash.com/premium_photo-1708413394110-dfd597305ab9?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
   },
-  
+  {
+    title: 'Chat with PDF',
+    description: 'An AI-powered application that allows users to interact with and query PDF documents, built using LangChain, React, and MUI.',
+    tech: ['Python', 'LangChain', 'React', 'MUI', 'TypeScript'],
+    demoUrl: '/projects/chat-with-pdf',
+    imageUrl: 'https://images.unsplash.com/photo-1623276527153-fa38c1616b05?q=80&w=3538&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+  }
 ];
 
 
@@ -47,7 +53,7 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4" style={{ maxHeight: '250px', overflow: 'hidden' }}>
                   <img src={project.imageUrl} />
                 </div>
 
