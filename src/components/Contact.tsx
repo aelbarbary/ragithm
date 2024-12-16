@@ -120,7 +120,6 @@ const Contact = () => {
             color="primary"
             fullWidth
             sx={{
-              backgroundColor: 'blue',
               padding: '12px',
               display: 'flex',
               justifyContent: 'center',

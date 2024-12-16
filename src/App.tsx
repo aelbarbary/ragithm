@@ -10,12 +10,13 @@ import CaseStudyDetail from './pages/CaseStudyDetail';
 import BlogPost from './pages/BlogPost';
 import { FactCheckHub } from './projects/fact-check-hub/FactCheckHub';
 import { ChatWithPdf } from './projects/chat-with-pdf/ChatWithPdf';
-
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
 
 
 function App() {
   return (
-    <AppProvider>
+    <ThemeProvider theme={theme}>
       <Router>
         <Layout>
           <Routes>
@@ -30,7 +31,7 @@ function App() {
           </Routes>
         </Layout>
       </Router>
-    </AppProvider>
+    </ThemeProvider>
   );
 }
 

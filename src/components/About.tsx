@@ -11,20 +11,21 @@ const founders = [
 With nearly a decade of experience in B2B SaaS and solo-entrepreneurship, I've developed a unique ability to identify and distill complex business challenges, crafting lasting solutions that have benefited numerous clients worldwide.`,
     expertise: ['Generative AI', 'RAG', 'LLMs', 'Business Strategy'],
     social: {
-      youtube: '',
-      linkedin: '',
-      github: '#'
+      youtube: 'https://www.youtube.com/@hennawitalksbusiness',
+      linkedin: 'https://www.linkedin.com/in/hennawi/',
+      github: 'https://github.com/sweetsaltco'
     }
   },
   {
     name: 'Abdelrahman Elbarbary',
     role: 'Technical Architecture & Security',
     image: 'https://media.licdn.com/dms/image/v2/D5603AQGcBrHZN0D7Xg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1719584511561?e=1738195200&v=beta&t=Denr146ZJJLn1VG3k2zTo3lKE1JYeRAkX0UCIOSgbGU',
-    bio: `A seasoned full-stack software engineer and tech lead with over 20 years of experience, specializing in developing large-scale applications and services. With a strong background in enhancing cybersecurity measures, I am proficient in tools like Fortify, Nessus, and Sonatype.`,
+    bio: `A full-stack software engineer and tech lead with over 20 years of experience, including roles at Oracle and Microsoft. Specializes in building AI chatbots, Retrieval-Augmented Generation (RAG) systems, and optimizing cloud architectures. Skilled in full-stack development, cybersecurity, and cloud optimization, with expertise in tools like Fortify, Nessus, and Sonatype to deliver secure and scalable solutions.`,
     expertise: ['Full-Stack Development', 'Cybersecurity', 'System Architecture', 'Tech Leadership'],
     social: {
-      linkedin: '',
-      github: '',
+      linkedin: 'https://www.linkedin.com/in/aelbarb/',
+      github: 'https://github.com/aelbarbary',
+      youtube:'https://www.youtube.com/@AbdelrahmanElbarbary'
     }
   }
 ];
