@@ -3,17 +3,17 @@ import { Github, Linkedin, Youtube } from 'lucide-react';
 
 const founders = [
   {
-    name: 'Mohamed Elhennawy',
+    name: 'Mohammad Al Hennawi',
     role: 'AI Strategy & Business Solutions',
     image: 'https://media.licdn.com/dms/image/v2/D4D03AQHwmfIl1f0Ozg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1730755802709?e=1738195200&v=beta&t=xiloaNAAiJ0Yb8CsUn4LzkzEmTbkpUJw3_2IlE0dYo4',
-    bio: `Seasoned professional passionate about empowering enterprises to overcome challenges and drive growth through the strategic application of reliable, enterprise-grade AI software, delivering lasting impact.
+    bio: `Seasoned professional experienced in delivering business outcomes through the strategic application of reliable, enterprise-grade AI software.
 
-With nearly a decade of experience in B2B SaaS and solo-entrepreneurship, I've developed a unique ability to identify and distill complex business challenges, crafting lasting solutions that have benefited numerous clients worldwide.`,
-    expertise: ['Generative AI', 'RAG', 'LLMs', 'Business Strategy'],
+With nearly a decade of experience in B2B SaaS and solo-entrepreneurship, Mohammad developed a unique ability to identify and distill complex business challenges then crafting lasting solutions that have benefited numerous clients worldwide.`,
+    expertise: ['Solutions Consulting','Generative AI', 'RAG', 'LLMs', 'Advisory', 'Training'],
     social: {
-      youtube: 'https://www.youtube.com/@hennawitalksbusiness',
       linkedin: 'https://www.linkedin.com/in/hennawi/',
-      github: 'https://github.com/sweetsaltco'
+      youtube: 'https://www.youtube.com/@hennawitalksbusiness'      
+      //github: 'https://github.com/sweetsaltco'
     }
   },
   {
@@ -24,8 +24,8 @@ With nearly a decade of experience in B2B SaaS and solo-entrepreneurship, I've d
     expertise: ['Full-Stack Development', 'Cybersecurity', 'System Architecture', 'Tech Leadership'],
     social: {
       linkedin: 'https://www.linkedin.com/in/aelbarb/',
-      github: 'https://github.com/aelbarbary',
-      youtube:'https://www.youtube.com/@AbdelrahmanElbarbary'
+      github: 'https://github.com/aelbarbary'
+      //youtube:'https://www.youtube.com/@AbdelrahmanElbarbary'
     }
   }
 ];
