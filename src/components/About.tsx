@@ -4,7 +4,7 @@ import { Github, Linkedin, Youtube } from 'lucide-react';
 const founders = [
   {
     name: 'Mohammad Al Hennawi',
-    role: 'AI Strategy & Business Solutions',
+    role: 'AI Solutions Consulting',
     image: 'https://media.licdn.com/dms/image/v2/D4D03AQHwmfIl1f0Ozg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1730755802709?e=1738195200&v=beta&t=xiloaNAAiJ0Yb8CsUn4LzkzEmTbkpUJw3_2IlE0dYo4',
     bio: `Seasoned professional experienced in delivering business outcomes through the strategic application of reliable, enterprise-grade AI software.
 
