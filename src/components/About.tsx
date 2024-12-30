@@ -37,7 +37,7 @@ const About = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">Meet Our Founders</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Combining decades of experience in AI, business strategy, and technical excellence
+            Combining decades of experience in AI, solutions consulting, and technical excellence
           </p>
         </div>
 
