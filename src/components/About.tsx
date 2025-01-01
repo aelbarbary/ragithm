@@ -8,7 +8,7 @@ const founders = [
     image: 'https://media.licdn.com/dms/image/v2/D4D03AQHwmfIl1f0Ozg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1730755802709?e=1738195200&v=beta&t=xiloaNAAiJ0Yb8CsUn4LzkzEmTbkpUJw3_2IlE0dYo4',
     bio: `Seasoned professional experienced in delivering business outcomes through the strategic application of reliable, enterprise-grade AI software.
 
-With nearly a decade of experience in B2B SaaS and solo-entrepreneurship, Mohammad developed a unique ability to identify and distill complex business challenges then crafting lasting solutions that have benefited numerous clients worldwide.`,
+With nearly a decade of experience in B2B SaaS and solo-entrepreneurship, Mohammad developed a unique ability to identify and distill complex business challenges then craft lasting solutions that have benefited numerous clients worldwide.`,
     expertise: ['Solutions Consulting','Generative AI', 'RAG', 'LLMs', 'Advisory', 'Training'],
     social: {
       linkedin: 'https://www.linkedin.com/in/hennawi/',
