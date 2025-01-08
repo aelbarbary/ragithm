@@ -4,13 +4,13 @@ import { Brain, Code, Cpu, MessageSquare, Rocket, Shield } from 'lucide-react';
 const services = [
   {
     icon: <Code className="h-8 w-8" />,
-    title: 'Custom AI Solutions',
-    description: 'Tailored AI solutions designed to meet your specific business needs and challenges.'
+    title: 'Custom GPT Solutions',
+    description: 'Tailored GPT solutions designed to meet your specific business needs and challenges.'
   },
   {
     icon: <MessageSquare className="h-8 w-8" />,
-    title: 'AI Help Desk',
-    description: 'Dedicated support for all administration, diagnoses, and resolution needs across your organization.'
+    title: 'GPT Help Desk',
+    description: 'Dedicated support for all GPT administration, diagnoses, and resolution needs across your organization.'
   },
   {
     icon: <Rocket className="h-8 w-8" />,
