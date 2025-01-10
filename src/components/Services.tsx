@@ -3,34 +3,19 @@ import { Brain, Code, Cpu, MessageSquare, Rocket, Shield } from 'lucide-react';
 
 const services = [
   {
-    icon: <Brain className="h-8 w-8" />,
-    title: 'Custom AI Solutions',
-    description: 'Tailored AI solutions designed to meet your specific business needs and challenges.'
-  },
-  {
     icon: <Code className="h-8 w-8" />,
-    title: 'AI Integration',
-    description: 'Seamless integration of AI technologies into your existing systems and workflows.'
-  },
-  {
-    icon: <Cpu className="h-8 w-8" />,
-    title: 'Machine Learning',
-    description: 'Advanced ML models for prediction, classification, and data analysis.'
+    title: 'Custom GPT Solutions',
+    description: 'Tailored GPT solutions designed to meet your specific business needs and challenges.'
   },
   {
     icon: <MessageSquare className="h-8 w-8" />,
-    title: 'NLP Solutions',
-    description: 'Natural Language Processing solutions for text analysis and chatbots.'
-  },
-  {
-    icon: <Shield className="h-8 w-8" />,
-    title: 'AI Security',
-    description: 'Implementing secure AI systems with privacy and protection measures.'
+    title: 'GPT Help Desk',
+    description: 'Dedicated support for all GPT administration, diagnoses, and resolution needs across your organization.'
   },
   {
     icon: <Rocket className="h-8 w-8" />,
-    title: 'AI Consulting',
-    description: 'Strategic guidance on AI implementation and digital transformation.'
+    title: 'Training',
+    description: 'Professional training sessions covering theory and practice to upskill your workforce.'
   }
 ];
 
@@ -41,7 +26,7 @@ const Services = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Services</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Leveraging cutting-edge AI technologies to deliver innovative solutions
+            Leveraging battle-tested AI technologies to deliver business outcomes
           </p>
         </div>
         
