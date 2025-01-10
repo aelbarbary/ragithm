@@ -17,7 +17,6 @@ const services = [
     title: 'Training',
     description: 'Professional training sessions covering theory and practice to upskill your workforce.'
   }
-  }
 ];
 
 const Services = () => {

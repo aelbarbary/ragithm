@@ -1,4 +1,3 @@
-cd /Users/abdel/Documents/ragithm
 npm run build
 cd dist
 aws s3 sync . s3://ragithm
