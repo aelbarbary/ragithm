@@ -1,49 +1,109 @@
-import React from 'react';
-import { Brain, Code, Cpu, MessageSquare, Rocket, Shield } from 'lucide-react';
+import React from "react";
+import { Code, MessageSquare, Rocket } from "lucide-react";
+import { useTheme } from "@mui/material/styles";
+import { Box, Typography, Card, CardContent, Grid } from "@mui/material";
 
 const services = [
   {
-    icon: <Code className="h-8 w-8" />,
-    title: 'Custom GPT Solutions',
-    description: 'Tailored GPT solutions designed to meet your specific business needs and challenges.'
+    icon: Code,
+    title: "Custom GPT Solutions",
+    description: "Tailored GPT solutions designed to meet your specific business needs and challenges.",
   },
   {
-    icon: <MessageSquare className="h-8 w-8" />,
-    title: 'GPT Help Desk',
-    description: 'Dedicated support for all GPT administration, diagnoses, and resolution needs across your organization.'
+    icon: MessageSquare,
+    title: "GPT Help Desk",
+    description: "Dedicated support for all GPT administration, diagnoses, and resolution needs across your organization.",
   },
   {
-    icon: <Rocket className="h-8 w-8" />,
-    title: 'Training',
-    description: 'Professional training sessions covering theory and practice to upskill your workforce.'
-  }
+    icon: Rocket,
+    title: "Training",
+    description: "Professional training sessions covering theory and practice to upskill your workforce.",
+  },
 ];
 
 const Services = () => {
+  const theme = useTheme();
+
   return (
-    <section id="services" className="py-20 bg-gray-900/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Services</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Leveraging battle-tested AI technologies to deliver business outcomes
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <Box
+      id="services"
+      sx={{
+        py: 10,
+        backgroundColor: theme.palette.grey[100],
+      }}
+    >
+      <Box sx={{ maxWidth: "1200px", mx: "auto", px: 3 }}>
+        <Box sx={{ textAlign: "center", mb: 6 }}>
+          <Typography
+            variant="h3"
+            component="h2"
+            sx={{
+              fontWeight: "bold",
+              color: theme.palette.text.primary,
+              mb: 2,
+            }}
+          >
+            Our Services
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ color: theme.palette.text.secondary, maxWidth: "600px", mx: "auto" }}
+          >
+            Leveraging battle-tested AI technologies to deliver business outcomes.
+          </Typography>
+        </Box>
+
+        <Grid container spacing={4}>
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="p-6 rounded-lg bg-gray-800/50 hover:bg-gray-800 transition-colors border border-gray-700 hover:border-blue-500"
-            >
-              <div className="text-blue-500 mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-gray-400">{service.description}</p>
-            </div>
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card
+                sx={{
+                  p: 2,
+                  backgroundColor: theme.palette.background.paper,
+                  border: `1px solid ${theme.palette.divider}`,
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    boxShadow: theme.shadows[4],
+                    borderColor: theme.palette.primary.main,
+                  },
+                }}
+              >
+                <CardContent>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      color: theme.palette.primary.main,
+                      mb: 2,
+                    }}
+                  >
+                    <service.icon size={32} />
+                  </Box>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      color: theme.palette.text.primary,
+                      mb: 1,
+                    }}
+                  >
+                    {service.title}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: theme.palette.text.secondary, textAlign: "center" }}
+                  >
+                    {service.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
           ))}
-        </div>
-      </div>
-    </section>
+        </Grid>
+      </Box>
+    </Box>
   );
 };
 

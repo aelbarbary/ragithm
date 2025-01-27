@@ -1,34 +1,63 @@
 import React from 'react';
+import { Button, Typography, Box, Container } from '@mui/material';
 import { Brain, ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="pt-20 pb-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <div className="flex justify-center mb-8">
-            <Brain className="h-16 w-16 text-blue-500 animate-pulse" />
-          </div>
-          <h1 className="text-4xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">
-            Engineering AI Solutions
-            <br />for Tomorrow
-          </h1>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+    <Box
+      id="home"
+      sx={{
+        pt: { xs: 10, sm: 20 },
+        pb: { xs: 10, sm: 32 },
+        textAlign: 'center',
+        backgroundColor: 'background.default',
+      }}
+    >
+      <Container maxWidth="lg">
+        <Box display="flex" justifyContent="center" mb={4}>
+          <Brain style={{ height: 64, width: 64, color: '#1a202c', animation: 'pulse 2s infinite' }} />
+        </Box>
+        <Typography variant="h1" gutterBottom>
+          Engineering AI Solutions
+          <br /> for Tomorrow
+        </Typography>
+        <Typography
+          variant="body1"
+          color="text.secondary"
+          sx={{
+            fontSize: '1.25rem',
+            maxWidth: 700,
+            mx: 'auto',
+            mb: 4,
+          }}
+        >
           With a combined expertise in engineering and solutions consulting, Mohammad Al Hennawi and Abdelrahman Elbarbary lead the way in transforming businesses using battle-tested AI technologies.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact" className="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg text-white font-medium transition-colors">
-              Contact Us
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
-            <a href="#services" className="inline-flex items-center px-6 py-3 border border-blue-500 rounded-lg text-blue-500 hover:bg-blue-500/10 font-medium transition-colors">
-              Learn More
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+        </Typography>
+        <Box display="flex" flexDirection={{ xs: 'column', sm: 'row' }} gap={2} justifyContent="center">
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            endIcon={<ArrowRight />}
+            sx={{ px: 4, py: 1.5 }}
+            href="#contact"
+          >
+            Contact Us
+          </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            size="large"
+            sx={{ px: 4, py: 1.5 }}
+            href="#services"
+          >
+            Learn More
+          </Button>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 
 export default Hero;
+  

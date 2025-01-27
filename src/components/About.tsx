@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box, Grid, Typography, Avatar, Chip, Link, IconButton } from '@mui/material';
 import { Github, Linkedin, Youtube } from 'lucide-react';
 
 const founders = [
@@ -9,11 +10,10 @@ const founders = [
     bio: `Seasoned professional experienced in delivering business outcomes through the strategic application of reliable, enterprise-grade AI software.
 
 With nearly a decade of experience in B2B SaaS and solo-entrepreneurship, Mohammad developed a unique ability to identify and distill complex business challenges then craft lasting solutions that have benefited numerous clients worldwide.`,
-    expertise: ['Solutions Consulting','Generative AI', 'RAG', 'LLMs', 'Advisory', 'Training'],
+    expertise: ['Solutions Consulting', 'Generative AI', 'RAG', 'LLMs', 'Advisory', 'Training'],
     social: {
       linkedin: 'https://www.linkedin.com/in/hennawi/',
-      youtube: 'https://www.youtube.com/@hennawitalksbusiness'      
-      //github: 'https://github.com/sweetsaltco'
+      youtube: 'https://www.youtube.com/@hennawitalksbusiness'
     }
   },
   {
@@ -25,77 +25,117 @@ With nearly a decade of experience in B2B SaaS and solo-entrepreneurship, Mohamm
     social: {
       linkedin: 'https://www.linkedin.com/in/aelbarb/',
       github: 'https://github.com/aelbarbary'
-      //youtube:'https://www.youtube.com/@AbdelrahmanElbarbary'
     }
   }
 ];
 
 const About = () => {
   return (
-    <section id="about" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Meet Our Founders</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Combining decades of experience in AI, solutions consulting, and technical excellence
-          </p>
-        </div>
+    <Box
+      id="about"
+      sx={{
+        py: 10,
+        px: 3,
+        background: 'linear-gradient(to right, #6a11cb, #2575fc)',
+        color: 'white'
+      }}
+    >
+      <Box textAlign="center" mb={8}>
+        <Typography variant="h3" fontWeight="bold" gutterBottom>
+          Meet Our Founders
+        </Typography>
+        <Typography variant="body1" maxWidth="600px" mx="auto" color="rgba(255, 255, 255, 0.8)">
+          Combining decades of experience in AI, solutions consulting, and technical excellence
+        </Typography>
+      </Box>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {founders.map((founder, index) => (
-            <div key={index} className="bg-gray-800/50 rounded-lg p-8 border border-gray-700">
-              <div className="flex flex-col items-center mb-6">
-                <img
+      <Grid container spacing={4} justifyContent="center">
+        {founders.map((founder, index) => (
+          <Grid item xs={12} md={6} key={index}>
+            <Box
+              sx={{
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                borderRadius: 3,
+                p: 4,
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+                '&:hover': { borderColor: '#4fc3f7' }
+              }}
+            >
+              <Box textAlign="center" mb={3}>
+                <Avatar
                   src={founder.image}
                   alt={founder.name}
-                  className="w-32 h-32 rounded-full mb-4 object-cover"
+                  sx={{ width: 100, height: 100, margin: '0 auto' }}
                 />
-                <h3 className="text-2xl font-bold">{founder.name}</h3>
-                <p className="text-blue-400">{founder.role}</p>
-              </div>
+                <Typography variant="h5" fontWeight="bold" mt={2}>
+                  {founder.name}
+                </Typography>
+                <Typography variant="body2" color="skyblue">
+                  {founder.role}
+                </Typography>
+              </Box>
 
-              <div className="space-y-4 text-gray-300 mb-6">
-                {founder.bio.split('\n\n').map((paragraph, i) => (
-                  <p key={i}>{paragraph}</p>
-                ))}
-              </div>
+              <Typography variant="body1" color="rgba(255, 255, 255, 0.8)" mb={3}>
+                {founder.bio}
+              </Typography>
 
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold mb-2">Expertise</h4>
-                <div className="flex flex-wrap gap-2">
+              <Box mb={3}>
+                <Typography variant="subtitle1" fontWeight="bold" mb={1}>
+                  Expertise
+                </Typography>
+                <Box display="flex" flexWrap="wrap" gap={1}>
                   {founder.expertise.map((skill, i) => (
-                    <span
+                    <Chip
                       key={i}
-                      className="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm"
-                    >
-                      {skill}
-                    </span>
+                      label={skill}
+                      sx={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                        color: 'white',
+                        fontWeight: 'bold'
+                      }}
+                    />
                   ))}
-                </div>
-              </div>
+                </Box>
+              </Box>
 
-              <div className="flex justify-center space-x-4">
+              <Box display="flex" justifyContent="center" gap={2}>
                 {founder.social.github && (
-                  <a href={founder.social.github} className="text-gray-400 hover:text-blue-500">
-                    <Github className="h-6 w-6" />
-                  </a>
+                  <IconButton
+                    component="a"
+                    href={founder.social.github}
+                    target="_blank"
+                    sx={{ color: 'white', '&:hover': { color: '#4fc3f7' } }}
+                  >
+                    <Github />
+                  </IconButton>
                 )}
                 {founder.social.linkedin && (
-                  <a href={founder.social.linkedin} className="text-gray-400 hover:text-blue-500">
-                    <Linkedin className="h-6 w-6" />
-                  </a>
+                  <IconButton
+                    component="a"
+                    href={founder.social.linkedin}
+                    target="_blank"
+                    sx={{ color: 'white', '&:hover': { color: '#4fc3f7' } }}
+                  >
+                    <Linkedin />
+                  </IconButton>
                 )}
                 {founder.social.youtube && (
-                  <a href={founder.social.youtube} className="text-gray-400 hover:text-blue-500">
-                    <Youtube className="h-6 w-6" />
-                  </a>
+                  <IconButton
+                    component="a"
+                    href={founder.social.youtube}
+                    target="_blank"
+                    sx={{ color: 'white', '&:hover': { color: '#4fc3f7' } }}
+                  >
+                    <Youtube />
+                  </IconButton>
                 )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+              </Box>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 };
 

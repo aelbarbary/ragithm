@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Send } from 'lucide-react';
 import { Box, Button, Container, TextField, Typography, TextareaAutosize } from '@mui/material';
 
@@ -14,125 +14,63 @@ const Contact = () => {
     console.log(formData);
   };
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup the script when the component unmounts
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  
   return (
     <Box
       id="contact"
       sx={{
         py: 10,
-        backgroundColor: 'rgba(24, 24, 24, 0.5)',
-        color: 'white',
+        backgroundColor: 'background.paper',
+        color: 'text.primary',
+        borderTop: 3,
+        borderColor: 'primary.main',
       }}
     >
       <Container maxWidth="lg">
-        <Box textAlign="center" mb={6}>
-          <Typography variant="h4" fontWeight="bold" gutterBottom>
-            Get in Touch
+        {/* Calendly Embed Section */}
+        <Box sx={{ mt: 8, textAlign: 'center' }}>
+          <Typography variant="h3" fontWeight="bold" gutterBottom>
+            Schedule an Appointment
           </Typography>
           <Typography
             variant="body1"
             sx={{
-              color: 'rgba(255, 255, 255, 0.7)',
+              color: 'text.secondary',
               maxWidth: '600px',
+              margin: '0 auto',
+              mb: 2,
+            }}
+          >
+            Pick a date and time that works best for you. We look forward to connecting!
+          </Typography>
+
+          {/* Calendly Embed */}
+          <Box
+            sx={{
+              minWidth: '320px',
+              height: '700px',
               margin: '0 auto',
             }}
           >
-            Ready to transform your business with AI? Let's discuss how we can help you achieve your goals.
-          </Typography>
-        </Box>
+            <div
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/abdelrahman-elbarbary/barbary" // Replace with your Calendly URL
+              style={{ minWidth: '320px', height: '700px' }}
+            ></div>
+          </Box>
 
-        <Box
-          component="form"
-          onSubmit={handleSubmit}
-          sx={{
-            maxWidth: '600px',
-            mx: 'auto',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 3,
-          }}
-        >
-          <TextField
-            label="Name"
-            variant="outlined"
-            fullWidth
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            required
-            sx={{
-              '& .MuiOutlinedInput-root': {
-                backgroundColor: 'rgba(38, 38, 38, 0.9)', // Dark background
-                borderRadius: 2,
-                '& input': {
-                  color: 'white', // White text inside the input
-                },
-              },
-              '& .MuiFormLabel-root': {
-                color: 'white', // White label text
-              },
-              '& .MuiFormLabel-root.Mui-focused': {
-                color: 'white', // Label stays white when focused
-              },
-            }}
-          />
-          <TextField
-            label="Email"
-            variant="outlined"
-            type="email"
-            fullWidth
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            required
-            sx={{
-              '& .MuiOutlinedInput-root': {
-                backgroundColor: 'rgba(38, 38, 38, 0.9)', // Dark background
-                borderRadius: 2,
-                '& input': {
-                  color: 'white', // White text inside the input
-                },
-              },
-              '& .MuiFormLabel-root': {
-                color: 'white', // White label text
-              },
-              '& .MuiFormLabel-root.Mui-focused': {
-                color: 'white', // Label stays white when focused
-              },
-            }}
-          />
-          <TextareaAutosize
-            minRows={4}
-            placeholder="Message"
-            value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            required
-            style={{
-              width: '100%',
-              padding: '16px',
-              borderRadius: '8px',
-              backgroundColor: 'rgba(38, 38, 38, 0.9)',
-              borderColor: '#424242',
-              color: 'white',
-              borderWidth: '1px',
-            }}
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-            sx={{
-              padding: '12px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: 1,
-              '&:hover': {
-                backgroundColor: 'blue.600',
-              },
-            }}
-          >
-            Send Message
-            <Send style={{ width: '20px', height: '20px' }} />
-          </Button>
         </Box>
       </Container>
     </Box>

@@ -21,10 +21,10 @@ const Layout = ({ children }: LayoutProps) => {
       <Navbar />
       <Box
         component="main"
-        sx={{
-          flexGrow: 1,
-          paddingTop: '64px', // Adjust depending on Navbar height
-        }}
+        // sx={{
+        //   flexGrow: 1,
+        //   paddingTop: '64px', // Adjust depending on Navbar height
+        // }}
       >
         {children}
       </Box>

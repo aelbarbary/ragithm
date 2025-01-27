@@ -1,87 +1,111 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, IconButton, Button, Box, Drawer, List, ListItem, ListItemText, ListItemButton } from '@mui/material';
 import { Brain, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
+  const isActive = (path: any) => location.pathname === path;
+
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/case-studies', label: 'Case Studies' },
-    { path: '/blog', label: 'Blog' },
+    // { path: '/', label: 'Home' },
+    // { path: '/projects', label: 'Projects' },
+    // { path: '/case-studies', label: 'Case Studies' },
+    // { path: '/blog', label: 'Blog' },
+    { path: '/contact', label: 'Contact' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
-
   return (
-    <nav className="fixed w-full bg-gray-900/90 backdrop-blur-sm z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center">
-            <Brain className="h-8 w-8 text-blue-500" />
-            <span className="ml-2 text-xl font-bold">Ragithm</span>
-          </Link>
-          
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navItems.map(({ path, label }) => (
-                <Link
-                  key={path}
-                  to={path}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    isActive(path)
-                      ? 'bg-blue-500 text-white'
-                      : 'text-gray-300 hover:text-blue-500'
-                  }`}
-                >
-                  {label}
-                </Link>
-              ))}
-              <Link
-                to="/contact"
-                className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md text-sm font-medium"
-              >
-                Contact
-              </Link>
-            </div>
-          </div>
-          
-          <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="p-2">
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
+    <>
+      <AppBar position="fixed" color="default" elevation={1} sx={{ backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
+        <Toolbar>
+          {/* Logo and Brand Name */}
+          <Box display="flex" alignItems="center" sx={{ flexGrow: 1 }}>
+            <Brain style={{ height: 32, width: 32, color: '#3b82f6' }} />
+            <Typography variant="h6" component={Link} to="/" sx={{ ml: 1, textDecoration: 'none', color: 'text.primary', fontWeight: 700 }}>
+              Ragithm
+            </Typography>
+          </Box>
 
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map(({ path, label }) => (
-              <Link
+          {/* Desktop Navigation */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }} gap={2}>
+            {navItems.slice(0, -1).map(({ path, label }) => (
+              <Button
                 key={path}
+                component={Link}
                 to={path}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
-                  isActive(path)
-                    ? 'bg-blue-500 text-white'
-                    : 'text-gray-300 hover:text-blue-500'
-                }`}
+                color={isActive(path) ? 'primary' : 'inherit'}
+                sx={{
+                  fontWeight: isActive(path) ? 'bold' : 'normal',
+                  textTransform: 'none',
+                  px: 2,
+                  '&:hover': { color: 'primary.main' },
+                }}
               >
                 {label}
-              </Link>
+              </Button>
             ))}
-            <Link
+            <Button
+              component={Link}
               to="/contact"
-              className="block bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-base font-medium"
+              variant="contained"
+              color="primary"
+              sx={{ px: 3, py: 1.2 }}
             >
               Contact
-            </Link>
-          </div>
-        </div>
-      )}
-    </nav>
+            </Button>
+          </Box>
+
+          {/* Mobile Menu Button */}
+          <IconButton
+            edge="end"
+            color="inherit"
+            aria-label="menu"
+            sx={{ display: { xs: 'flex', md: 'none' } }}
+            onClick={() => setIsOpen(true)}
+          >
+            <Menu />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+
+      {/* Mobile Drawer */}
+      <Drawer anchor="right" open={isOpen} onClose={() => setIsOpen(false)}>
+        <Box sx={{ width: 250 }}>
+          <Box display="flex" justifyContent="flex-end" p={2}>
+            <IconButton onClick={() => setIsOpen(false)}>
+              <X />
+            </IconButton>
+          </Box>
+          <List>
+            {navItems.map(({ path, label }) => (
+              <ListItem
+                key={path}
+                disablePadding
+                onClick={() => setIsOpen(false)}
+              >
+                <ListItemButton
+                  component={Link}
+                  to={path}
+                  selected={isActive(path)}
+                >
+                  <ListItemText
+                    primary={label}
+                    primaryTypographyProps={{
+                      color: isActive(path) ? 'primary' : 'text.primary',
+                      fontWeight: isActive(path) ? 'bold' : 'normal',
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </Drawer>
+
+    </>
   );
 };
 
